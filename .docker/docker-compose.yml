@@ -27,6 +27,20 @@ services:
             - symfony_app_vendor:/var/www/symfony/vendor
         networks:
             - symfony_app
+
+    phpmyadmin:
+        depends_on:
+            - db
+        image: phpmyadmin
+        restart: always
+        environment:
+            PMA_HOST: mysql
+        ports:
+            - 8080:80
+        environment:
+            - PMA_ARBITRARY=1
+        networks:
+            - symfony_app
     nginx:
         build:
             context: ./nginx

@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+  <div class="h-screen ">
+    <section id="1" class="">
+      <h1>BONJOUR </h1>
+      <h3>Formulaire article</h3>
+      <ul>
+        {% for article in articles %}
+          <li>{{article.title}} at {{article.price}}€</li>
+          <a href="{{path('articles_edit', {articleId: article.id})}}">Modifier</a>
+          <a href="{{path('articles_delete', {articleId: article.id})}}">Supprimer</a>
+        {% endfor %}
+      </ul>
+      <form action="{{path('articles_add')}}" method="post">
+        <input type="text" name="title" placeholder="title">
+        <input type="number" name="price" placeholder="price">
+        <button type="submit">Save</button>
+      </form>
+    </section>
+
+  </div>
+
+{% endblock %}

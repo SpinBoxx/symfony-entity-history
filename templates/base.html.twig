@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+  
+  </head>
+  <body class="bg-custom">
+
+
+    <section id="flashMessage" aria-live="assertive" class="fixed inset-0 flex items-end px-4 py-6 z-30 pointer-events-none sm:p-6 sm:items-start">
+      <div class="w-full flex flex-col items-center space-y-4 sm:items-end">
+        {# {% for index, message in app.flashes('error') %}
+          {{ include('components/overlays/notifications/simpleNotification.html.twig', {type : "error", message: message, index : index}) }}
+        {% endfor %}
+        {% for index, message in app.flashes('success') %}
+          {{ include('components/overlays/notifications/simpleNotification.html.twig', {type : "success", message: message, index : index}) }}
+        {% endfor %} #}
+      </div>
+    </section>
+
+    {% block body %}{% endblock %}
+  </body>
+</html>
